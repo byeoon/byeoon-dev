@@ -112,21 +112,6 @@ a>img:hover {
   gap: 20px;
 }
 
-.blogdiv {
-  border: 2px solid rgb(255, 0, 0);
-  box-shadow: 0 0 10px 8px #580000b0;
-  min-height: 80px;
-  min-width: 250px;
-  background-color: rgba(32, 12, 12);
-}
-
-.blogdiv:hover {
-  background-color: rgba(78, 12, 12, 0.8);
-  border: 3px solid #ff4b4b;
-  box-shadow: 0 0 12px 8px #743737;
-  cursor: pointer;
-}
-
 
 .coolcontainer {
   border: 2px solid #5dafb1;
@@ -134,13 +119,32 @@ a>img:hover {
   background-color: rgba(20, 17, 25, 0.8);
   position: relative;
   width: 350px;
-  padding: 20px;
+  padding: 12px;
   border-radius: 4px;
-  margin-top: 250px;
+  margin-top: 300px; /* that fucking bird that i hate (Idk how to make competent css */
   animation: showup 0.6s ease-out forwards;
   transform-origin: left center;
   z-index: 5;
-  min-height: 570px;
+  min-height: 590px;
+}
+
+.shop {
+  width: 850px !important;
+  margin-top: 30px !important; /* that fucking bird that i hate (Idk how to make competent css */
+  height: 700px !important;
+}
+
+.spacedoutman {
+  height: auto !important; 
+}
+
+.shopchip {
+  border: 1px solid #5dafb1;
+  background-color: rgba(3, 4, 5, 0.8);
+  width: 180px;
+  padding: 4px;
+  border-radius: 2px;
+  height: 300px;
 }
 
 

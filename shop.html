@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>byeoon's cyberspace</title>
+  <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+  <meta content="byeoon's cyberspace" property="og:title" />
+  <meta property="og:description" content="programmer, developer and cool stuff maker">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta content="#3d329b" data-react-helmet="true" name="theme-color" />
+  <meta content="https://byeoon.dev/img/me.png" property="og:image" />
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"
+    integrity="sha512-Kef5sc7gfTacR7TZKelcrRs15ipf7+t+n7Zh6mKNJbmW+/RRdCW9nwfLn4YX0s2nO6Kv5Y2ChqgIakaC6PW09A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"
+    integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <div id="particles-js"></div>
+  <div class="main">
+    <div class="coolcontainer shop" id="1">
+      <p class="p2">BYEOON MARKETPLACE</p>
+      <h2 class="results">SHOP</h2>
+      <h2 class="affiliation">This is my marketplace for potential things you can buy from me at a discount.
+        I do not have issues shipping worldwide if I have to. I will rework this website in a bit, I'm really lazy right now.
+      </h2>
+      <div class="flexboxing">
+      <div class="shopchip spacedoutman">
+        <h1 class="p2">Valve Index Full Setup</h1>
+        <h4>Includes 2x base stations, headset, knuckles, all cords, and 3x trackers (TRACKERS CAN ALSO BE BOUGHT SEPARATELY) </h4>
+         <h2 class="results">$1,100 <span style="font-size: 14px;">(Avg. $1,500~)</span></h2>
+      </div>
+      <div class="shopchip spacedoutman">
+        <h1 class="p2">3x 3.0 Vive Trackers (FBT)</h1>
+        <h3>Title self explanitory, comes with 3 3.0 vive trackers for FBT.</h3>
+         <h2 class="results">$250 <span style="font-size: 14px;">(Avg. $350~)</span></h2>
+      </div>
+      </div>
+      <h1>All inquiries about sales can be messaged to me at @byeoon on Discord. Serious offers only.</h1>
+      
+    </div>
+
+  <!--  
+     <a href="./" class="statscontainer">
+      <p2 class="abilitylist">BACK TO HOME <br><span class="rect-ram">READY</span></p2>
+    </a>
+    -->
+
+
+
+
+  </div>
+</body>
+
+<audio id="hoverSound">
+  <source src="audio/hover.mp3" type="audio/mpeg">
+</audio>
+
+<audio id="clickSound">
+  <source src="audio/press.mp3" type="audio/mpeg">
+</audio>
+
+<audio id="clickSoundAlt">
+  <source src="audio/press2.mp3" type="audio/mpeg">
+</audio>
+
+<audio id="ambience">
+  <source src="audio/ambience.mp3" type="audio/mpeg">
+</audio>
+
+</html>
+
+<script>
+  const hover = document.getElementById('hoverSound');
+  const click = document.getElementById('clickSound');
+  const clickAlt = document.getElementById('clickSoundAlt');
+  const ambience = document.getElementById('ambience');
+  ambience.loop = true;
+  ambience.volume = 0.25;
+
+  document.querySelectorAll('.statscontainer').forEach(button => {
+    button.addEventListener('mouseover', () => {
+      hover.currentTime = 0;
+      hover.play();
+    });
+
+    button.addEventListener('click', () => {
+      click.currentTime = 0;
+      click.play();
+    });
+  });
+
+  document.querySelectorAll('.rect').forEach(button => {
+    button.addEventListener('mouseover', () => {
+      hover.currentTime = 0;
+      hover.play();
+    });
+
+    button.addEventListener('click', () => {
+      clickAlt.currentTime = 0;
+      clickAlt.play();
+    });
+  });
+
+  document.addEventListener('click', () => {
+    if (ambience.paused) ambience.play();
+  }, { once: true });
+
+  function toggleAmbience() {
+    if (ambience.paused) {
+      ambience.play();
+      document.querySelector('[onClick="toggleAmbience()"]').style.borderColor = '#6CF6FC';
+      document.querySelector('[onClick="toggleAmbience()"]').style.boxShadow = '';
+    } else {
+      ambience.pause();
+      document.querySelector('[onClick="toggleAmbience()"]').style.borderColor = '#ff4b4b';
+      document.querySelector('[onClick="toggleAmbience()"]').style.boxShadow = '0 0 12px 8px #3d0000b0';
+    }
+  }
+
+
+
+  changeMenu(1);
+  window.addEventListener("hashchange", function () {
+    if (window.location.hash === "#home") {
+      changeMenu(1);
+    }
+
+    if (window.location.hash === "#projects") {
+      changeMenu(2);
+    }
+
+    if (window.location.hash === "#about") {
+      changeMenu(4);
+    }
+
+    if (window.location.hash === "#travel") {
+      changeMenu(5);
+    }
+
+  });
+
+  function changeMenu(num) {
+    for (i = 0; i < document.getElementsByClassName("coolcontainer").length; i++) {
+      if (document.getElementsByClassName("coolcontainer")[i].id !== num) {
+        document.getElementsByClassName("coolcontainer")[i].style.opacity = "0";
+        document.getElementsByClassName("coolcontainer")[i].style.zIndex = "0";
+        document.getElementsByClassName("coolcontainer")[i].style.display = "none";
+      }
+      document.getElementById(num).style.opacity = "1";
+      document.getElementById(num).style.zIndex = "5";
+      document.getElementById(num).style.display = "block";
+    }
+  }
+  particlesJS.load('particles-js', 'particlesjs-config.json', function () {
+  });
+</script>
